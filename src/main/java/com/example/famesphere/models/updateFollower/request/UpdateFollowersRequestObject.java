@@ -6,12 +6,23 @@ public class UpdateFollowersRequestObject {
 
     private int ytsubscribers;
 
+    private String igusername;
+
     public UpdateFollowersRequestObject() {
     }
 
-    public UpdateFollowersRequestObject(int igfollowers, int ytsubscribers) {
+    public UpdateFollowersRequestObject(String igusername,int igfollowers, int ytsubscribers) {
+        this.igusername = igusername ;
         this.igfollowers = igfollowers;
         this.ytsubscribers = ytsubscribers;
+    }
+
+    public String getIgusername() {
+        return igusername;
+    }
+
+    public void setIgusername(String igusername) {
+        this.igusername = igusername;
     }
 
     public int getIgfollowers() {

@@ -13,6 +13,6 @@ public interface ProfileRepository extends JpaRepository<ProfileResponse,String>
 	ProfileResponse findByUseridCustom(@Param("userid")String userid);
 
 	@Modifying
-	@Query(value="Update profile set instafollower = :igfollowers , ytsubscribers = :ytsubscribers where userid = :userid",nativeQuery = true)
-	Integer updateFollowerCount(@Param("userid")String userid,@Param("igfollowers")int igfollowers,@Param("ytsubscribers")int ytsubscribers);
+	@Query(value="Update profile set instausername = :instausername , instafollower = :igfollowers , ytsubscribers = :ytsubscribers where userid = :userid",nativeQuery = true)
+	Integer updateFollowerCount(@Param("userid")String userid,@Param("instausername")String instausername,@Param("igfollowers")int igfollowers,@Param("ytsubscribers")int ytsubscribers);
 }

@@ -37,6 +37,11 @@ public class LoginController {
     @Autowired
     private MyUserDetailsService userDetailsService;
 
+    @RequestMapping(value = "/getTest", method = RequestMethod.GET)
+    public String getTest() throws JpaSystemException, Exception {
+
+      return "test";
+    }
 
     @Transactional
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -56,7 +61,7 @@ public class LoginController {
 
         Profile profile ;
 
-        profile = new Profile(signUpObject.getUserid(),signUpObject.getPassword(),signUpObject.getEmail(),null,null);
+        profile = new Profile(signUpObject.getUserid(),signUpObject.getPassword(),null,signUpObject.getEmail(),null,null);
         return new SignUpResponseObject(signUpRepository.save(profile),generateJwtToken(profile.getUserid(),profile.getPassword()));
     }
 
@@ -87,7 +92,7 @@ public class LoginController {
         //int locationcode = jwtUtil.extractLocationcode(jwt);
 
         System.out.println("userid 2 "+userid);
-        Integer status = profileRepository.updateFollowerCount(userid,updateFollowersRequestObject.getIgfollowers(),updateFollowersRequestObject.getYtsubscribers());
+        Integer status = profileRepository.updateFollowerCount(userid,updateFollowersRequestObject.getIgusername(),updateFollowersRequestObject.getIgfollowers(),updateFollowersRequestObject.getYtsubscribers());
 
         return new UpdateFollowersResponseObject(userid,status);
 

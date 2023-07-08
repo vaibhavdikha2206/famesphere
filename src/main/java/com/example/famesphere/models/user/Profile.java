@@ -13,6 +13,9 @@ public class Profile {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "instausername")
+    private String instausername;
+
     @Column(name = "email")
     private String email;
 
@@ -26,15 +29,23 @@ public class Profile {
 
     }
 
-    public Profile(String userid, String password,String email,Integer instafollower, Integer ytsubscribers) {
+    public Profile(String userid, String password,String instausername,String email,Integer instafollower, Integer ytsubscribers) {
         super();
         this.userid = userid;
         this.password = password;
         this.email = email;
+        this.instausername = instausername;
         this.instafollower = instafollower;
         this.ytsubscribers = ytsubscribers;
     }
 
+    public String getInstausername() {
+        return instausername;
+    }
+
+    public void setInstausername(String instausername) {
+        this.instausername = instausername;
+    }
     public String getUserid() {
         return userid;
     }
