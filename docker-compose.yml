@@ -1,7 +1,8 @@
 version: "3"
 services:
-  mysqldb:
+  docker-mysql:
     image: mysql:8.0
+    container_name: docker-mysql
     ports:
       - 3307:3306
     environment:
@@ -10,6 +11,11 @@ services:
 
   springboot-app:
     image: springboot-app
+    container_name: springboot-docker
     build: .
     ports:
       - 8080:8090
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://docker-mysql:3306/famesphere
+    depends_on:
+      - docker-mysql
