@@ -3,11 +3,14 @@ services:
   docker-mysql:
     image: mysql:8.0
     container_name: docker-mysql
+    build: ./SQLDockerFile
     ports:
       - 3307:3306
     environment:
       MYSQL_ROOT_PASSWORD: nevertellkd
       MYSQL_DATABASE: famesphere
+    volumes:
+      - ./famesphere_profile.sql:/docker-entrypoint-initdb.d/famesphere_profile.sql
 
   springboot-app:
     image: springboot-app
