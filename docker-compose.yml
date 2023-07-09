@@ -14,7 +14,7 @@ services:
     container_name: springboot-docker
     build: .
     ports:
-      - 8080:8090
+      - 8090:443
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://docker-mysql:3306/famesphere
     depends_on:
