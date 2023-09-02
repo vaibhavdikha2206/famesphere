@@ -2,9 +2,8 @@ server :
   port : 3001
 
   ssl:
-    enabled: true
-    key-alias: local_ssl2
-    key-store: classpath:local-ssl2.p12
-    key-store-type: PKCS12
-    key-password: nevertellkd
-    key-store-password: nevertellkd
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-store-type: pkcs12
+    key-alias: springboot
+    key-password: password
