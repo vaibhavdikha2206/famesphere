@@ -2,8 +2,8 @@ server :
   port : 3001
 
   ssl:
-    key-store: classpath:keystore.p12
+    key-store: /etc/letsencrypt/live/onboarding.famesphere.tech/keystore.p12
     key-store-password: password
     key-store-type: pkcs12
-    key-alias: springboot
+    key-alias: tomcat
     key-password: password
