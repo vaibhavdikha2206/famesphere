@@ -37,12 +37,14 @@ public class LoginController {
     @Autowired
     private MyUserDetailsService userDetailsService;
 
+    @CrossOrigin
     @RequestMapping(value = "/getTest", method = RequestMethod.GET)
     public String getTest() throws JpaSystemException, Exception {
 
       return "test";
     }
 
+    @CrossOrigin
     @Transactional
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public SignUpResponseObject signUp(@RequestBody SignUpObject signUpObject) throws JpaSystemException, Exception {
@@ -82,6 +84,7 @@ public class LoginController {
         return jwt;
     }
 
+    @CrossOrigin
     @Transactional
     @RequestMapping(method=RequestMethod.POST,value="/updateFollowerCount")
     public UpdateFollowersResponseObject initiateExpressDelivery(@RequestBody UpdateFollowersRequestObject updateFollowersRequestObject, @RequestHeader (name="Authorization") String authorizationHeader) throws Exception {
